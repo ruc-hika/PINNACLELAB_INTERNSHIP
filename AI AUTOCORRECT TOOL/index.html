@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Autocorrect Tool</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="logo-icon">AI</div>
+            <span>AI Autocorrect Tool</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <main id="home">
+
+        <section class="hero">
+            <div class="hero-badge">AI-Powered Writing Assistant</div>
+
+            <h1>
+                AI Autocorrect
+                <span>Tool</span>
+            </h1>
+
+            <p>
+                Advanced grammar and spelling correction for clear,
+                accurate and professional writing.
+            </p>
+        </section>
+
+        <!-- Main Tool Card -->
+        <section class="tool-card">
+
+            <form method="POST">
+
+                <div class="section-heading">
+                    <div class="heading-left">
+                        <div class="heading-icon">✎</div>
+
+                        <div>
+                            <h2>Enter Your Text</h2>
+                            <p>Write or paste your incorrect text below</p>
+                        </div>
+                    </div>
+                </div>
+
+                <textarea
+                    name="text"
+                    maxlength="2000"
+                    placeholder="Enter your text here..."
+                    required
+                >{{ original_text }}</textarea>
+
+                <div class="button-row">
+
+                    <button type="submit" class="correct-button">
+                        <span>✦</span>
+                        Correct Text
+                    </button>
+
+                    <a href="/" class="clear-button">
+                        Clear Text
+                    </a>
+
+                </div>
+
+            </form>
+
+            {% if corrected_text %}
+
+            <div class="divider"></div>
+
+            <div class="result-card">
+
+                <div class="result-heading">
+                    <div class="result-title">
+                        <div class="success-icon">✓</div>
+
+                        <div>
+                            <h2>Corrected Text</h2>
+                            <p>Your corrected text is ready</p>
+                        </div>
+                    </div>
+
+                    <span class="completed-badge">
+                        ✓ Completed
+                    </span>
+                </div>
+
+                <div class="corrected-output">
+                    {{ corrected_text }}
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </section>
+
+        <!-- Feature Cards -->
+        <section class="features" id="about">
+
+            <div class="feature-card">
+                <div class="feature-icon purple">✦</div>
+
+                <div>
+                    <h3>AI Powered</h3>
+                    <p>
+                        Detects spelling, grammar and punctuation errors
+                        using intelligent language processing.
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon blue">✓</div>
+
+                <div>
+                    <h3>Secure & Private</h3>
+                    <p>
+                        Your text is processed securely and is not
+                        permanently stored by this application.
+                    </p>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon green">⚡</div>
+
+                <div>
+                    <h3>Instant Results</h3>
+                    <p>
+                        Receive corrected and improved text within
+                        seconds using one simple button.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 AI Autocorrect Tool | Pinnacle Labs Internship Project</p>
+    </footer>
+
+</body>
+</html>
